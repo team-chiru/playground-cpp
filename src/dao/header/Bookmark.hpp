@@ -5,7 +5,8 @@
 
 class Bookmark {
 public:
-  void show_name();
+  Bookmark();
+  std::string get_name();
 
 private:
   int id;

@@ -3,10 +3,11 @@ cmake_minimum_required(VERSION 3.0.2)
 ############################################################
 #### CONFIGURE CMAKE VARIABLES
 ############################################################
-set (PROJECT_NAME bookmarkt)
-set (CMAKE_MODULE_DIR ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules/")
-set (CMAKE_BINARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/build/")
-set (EXECUTABLE_OUTPUT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/bin/")
+set (PROJECT_NAME playground)
+set (CMAKE_MODULES ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
+set (SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
+set (BUILD_DIR "${CMAKE_CURRENT_SOURCE_DIR}/build")
+set (BIN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
 project( ${PROJECT_NAME} )
 
@@ -41,10 +42,13 @@ set ( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11" )
 ############################################################
 #### ADD SUBDIRECTORIES
 ############################################################
-add_subdirectory( src )
+add_subdirectory( ${SRC_DIR} )
 # add_subdirectory( tests )
 
 ############################################################
 #### ADD EXECUTABLE
 ############################################################
 add_executable ( ${PROJECT_NAME} ${SOURCE_FILES} )
+
+# set_target_properties ( ${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX )
+# target_link_libraries( ${PROJECT_NAME} ${CONAN_LIBS} )

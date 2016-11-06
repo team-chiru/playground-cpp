@@ -6,6 +6,7 @@
 
 class BookmarkDAO {
 public:
+  BookmarkDAO();
   void init();
   void insert(Bookmark b);
   void deelete(Bookmark b);
@@ -14,7 +15,7 @@ public:
   void list();
 
 private:
-  Bookmark b;
+  // Bookmark b;
 };
 
 #endif
